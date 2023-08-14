@@ -1,7 +1,7 @@
 
 
-const char* ssid_1     = "zatiel33";
-const char* password_1 = "zatiel8661233918";
+const char* ssid_1     = "red";
+const char* password_1 = "password";
 const char* ssid_2     = "Subcribanse";
 const char* password_2 = "alswnet";
 
