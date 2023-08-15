@@ -18,7 +18,7 @@ ESP8266WiFiMulti wifiMulti;
 #endif
 
 #include "data.h"
-
+#include "data1.h"
 #if defined(ESP8266)
 int pinLed = LED_BUILTIN;
 #elif defined(ESP32)
@@ -82,10 +82,9 @@ void loop() {
         if (Letra == '\n') {
           if (LineaActual.length() == 0) {
             digitalWrite(LEDPins[0], Estado);
-            cliente.println("HTTP/1.1 200 OK");
-            cliente.println("Content-type:text/html");
-            cliente.println();
-            ResponderCliente(cliente);
+            digitalWrite(LEDPins[1], Estado);
+            
+            web(cliente);
             break;
           } else {
             Serial.println(LineaActual);
@@ -112,8 +111,15 @@ void VerificarMensaje(String Mensaje) {
     Serial.println("Apagar Led");
     Estado = false;
   }
+  if (Mensaje.indexOf("GET /encender1") >= 0) {
+    Serial.println("Encender Led1");
+    Estado = true;
+  } else if (Mensaje.indexOf("GET /apagar1") >= 0) {
+    Serial.println("Apagar Led1");
+    Estado = false;
+  }
 }
 
 void ResponderCliente(WiFiClient& cliente) {
-  cliente.print(Pagina);
+  cliente.print(pagina);
 }
