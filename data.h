@@ -5,15 +5,15 @@ const char* password_1 = "password";
 const char* ssid_2     = "Subcribanse";
 const char* password_2 = "alswnet";
 
-const String Pagina =  R"====(
+const String pagina =  R"====(
 <!DOCTYPE html>
 <html lang="es">
- <head>
+  <head>
     <meta charset="utf-8">
     <title>Identificador</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <style>
-       body {
+    <style>
+      body {
             background-image: linear-gradient(to top,#5a07f0, #d17bff);
             margin: 1%;
             padding: 9.5%;
@@ -25,6 +25,7 @@ const String Pagina =  R"====(
             color: white;
             font-weight: bold;
             margin-bottom: 20%;
+            width: 100%;
         }
         p {
             color: black;
@@ -37,7 +38,6 @@ const String Pagina =  R"====(
             color: white;
             padding: 20px 0;
         }
-        
         .container {
             color: white;
             width: 80%;
@@ -97,74 +97,49 @@ const String Pagina =  R"====(
             }
         }
 
-    </style>
-</head>
-  <body>
-  <title>ESP con JavaScript</title>
-  <h1>Botones</h1>
-  <div class="container">
-    <div class="box">
-    <input id=botonEncender type=button value=Encendido onclick=botonEncender()> 
-    <input id=botonApagar type=button value=Apagado onclick=botonApagar()>
-    </div>
-  </div>
-  <script>function botonEncender(){
-        console.log("Encender LED");
-        consultarGET("encender");
-    }
+        </style>
+      </head>
+ 
+      <body>
+      <h1>interface IoT</h1>
 
-    function botonApagar(){
-        console.log("Apagar LED");
-        consultarGET("apagar");
-    }
+      <div class="container">)====";
 
-    function consultarGET(consulta){
-        const Http = new XMLHttpRequest();
-        Http.open("GET", consulta);
-        Http.send();
+const String pagina1 =  R"====( <div class="box">
+        <p>SALIDA #)====";
+        
+const String pagina2 =  R"====(</p>
+        <input type="button" id="botonEncender" onclick="botonEncender)====";
+const String pagina3 =  R"====(()" value="Encender">
+        <input type="button" id="botonApagar"  onclick="botonApagar)====";
+const String pagina4 =  R"====(()" value="Apagar">
+        </div>)====";
+const String pagina5 =  R"====(</div>
+    <script>)====";
+const String pagina6 =  R"====(function botonEncender)====";
 
-        Http.onreadystatechange = (e) => {
-            console.log(Http.status);
-            console.log(Http.response);
-        }
-    }
+const String pagina7 =  R"====((){
+          consultaGET("encender)====";
+const String pagina8 =  R"====(");
+      }
+      function botonApagar)====";
+const String pagina9 =  R"====((){
+          consultaGET("apagar)====";
+const String pagina10 =  R"====(");
+      })====";
+const String pagina11 =  R"====(function consultaGET(consulta){
+          const Http = new XMLHttpRequest();
+          console.log(`Consultando  ${consulta}`)
+          Http.open("GET", consulta);
+          Http.send();
 
-    const elementoApagar = document.getElementById("botonApagar");
-    elementoApagar.addEventListener("click", botonApagar)</script>
-</body>  </html>)====";
-const String pagina6 =  R"====( </div> <script>
-function botonEncender(){
-        console.log("Encender LED");
-        consultarGET("encender
-        const String pagina7 =  R"====(");
-    })====";
-const String pagina8 =  R"====(
-    function botonApagar(){
-        console.log("Apagar LED");
-        consultarGET("apagar)====";
-        const String pagina9 =  R"====(");
-    })====";
-const String pagina10 =  R"====(
-    function consultarGET(consulta){
-        const Http = new XMLHttpRequest();
-        console.log(`Consulta ${consulta}`);
-        Http.open("GET", consulta);
-        Http.send();
+          Http.onreadystatechange = (e) => {
+          console.log(Http.status );
+          console.log(Http.responseText);
+          };
+      }
+        </script>
+        </body>
+        </html>)====";
 
-        Http.onreadystatechange = (e) => {
-            console.log(Http.status);
-            console.log(Http.response);
-        }
-    }</script>)====";
-
-
- const String pagina1 =  R"====(<div class="box">
-        <p>SALIDA )====";
-     const String pagina2  = R"====(</p>
-        <input id=botonEncender)====";
-     const String pagina3  = R"====( type=button value=Encendido onclick=botonEncender()>
-        <input id=botonApagar)====";
-     const String pagina4  = R"====(type=button value=Apagado onclick=botonAapagar()>
-    </div>)====";  
-  const String pagina5 =  R"====(  </div>    </body>  </html>
-     )====";
+const String pagina20 =  R"====(function botonEncender)====";
